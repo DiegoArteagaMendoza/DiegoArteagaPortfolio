@@ -1,0 +1,162 @@
+/* src/styles/timeline.css */
+
+:root {
+  --marker-color: #fda4a4; /* Rosa */
+  --line-color: #666;      /* Gris oscuro líneas */
+  --text-color: #444;
+  --marker-size: 50px;
+}
+
+h4 {
+  margin: 50px;
+  font-size: x-large;
+}
+
+/* --- Contenedor Principal --- */
+.timeline-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 20px;
+}
+
+/* Contenedor flexible de los nodos */
+.timeline-flex {
+  display: flex;
+  justify-content: space-between; /* Distribuye equitativamente */
+  align-items: flex-start;        /* Alinear al tope */
+  position: relative;
+  padding-top: 20px;
+}
+
+/* --- La Línea Horizontal (Eje Central) --- */
+.timeline-flex::before {
+  content: '';
+  position: absolute;
+  top: 45px; /* Mitad del marker (25px) + padding-top (20px) */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--line-color);
+  z-index: 0; 
+}
+
+/* --- Nodo Individual --- */
+.timeline-node {
+  position: relative;
+  z-index: 1; /* Para estar sobre la línea gris */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;    /* Todos los nodos ocupan el mismo ancho */
+  padding: 0 10px;
+  transition: 0.5s; /* Transición suave para cuando vuelva del hover */
+}
+
+/* El círculo rosa */
+.marker {
+  width: var(--marker-size);
+  height: var(--marker-size);
+  background-color: var(--marker-color);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 8px #f9f9f9; 
+  flex-shrink: 0;
+  font-family: 'Courier New', Courier, monospace;
+
+  /* Centrado del número */
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  
+  font-weight: bold;
+  font-size: 1.5rem;      
+  color: #fff;            
+}
+
+/* --- Texto e Información --- */
+.info {
+  font-size: large;
+  /* color: var(--text-color); */
+  color: #000;
+  line-height: 1.4;
+  font-family: 'Courier New', Courier, monospace;
+  transition: 0.3s; /* Suavizar cambio de color de texto */
+}
+
+.info strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #000;
+  font-size: x-large;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- Logos --- */
+.logos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* ================================================================
+   EFECTOS HOVER (SOLO ESCRITORIO)
+   Aquí está el truco: Encerramos esto en min-width: 769px.
+   Así, estos estilos NO EXISTEN para el celular.
+   ================================================================ 
+*/
+/* @media (min-width: 769px) {
+  .timeline-node:hover {
+    transform: scale(1.5);
+    background-color: rgba(255, 87, 87, 0.3);
+    z-index: 10;
+  }
+
+  .timeline-node .info:hover {
+    color: #000;
+  }
+} */
+
+/* --- Responsive: Diseño Vertical para Móviles --- */
+@media (max-width: 768px) {
+  .timeline-flex {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  /* La línea cambia de horizontal a vertical */
+  .timeline-flex::before {
+    top: 0;
+    bottom: 0;
+    left: 25px; /* Centrada con el marcador */
+    width: 2px;
+    height: 100%;
+    right: auto;
+  }
+
+  .timeline-node {
+    flex-direction: row; 
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .marker {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  
+  .logos {
+    justify-content: flex-start; 
+  }
+}

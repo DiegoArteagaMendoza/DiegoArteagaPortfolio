@@ -1,0 +1,140 @@
+/* .inicio {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    margin: 5%;
+    margin-top: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 0.1;
+    align-items: center;
+}
+
+.inicio::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 120%;
+    top: -10%;
+    background-color: #000000;
+    pointer-events: none;
+}
+
+.inicio-columna {
+    text-align: center;
+    padding: 10px;
+}
+
+.inicio-lista {
+    text-align: left;
+    margin-left: 15%;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.linea-horizontal {
+    border-bottom: 2px solid #000000;
+    width: 100%;
+}
+
+.foto-perfil {
+    width: 354px;       
+    height: 419px;      
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+} */
+
+.inicio {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columnas en PC */
+    gap: 0px;
+    margin: 5%;
+    margin-top: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 0.1;
+    align-items: center;
+    font-size: xx-large;
+}
+
+/* La línea vertical central */
+.inicio::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 120%;
+    top: -10%;
+    background-color: #000000;
+    pointer-events: none;
+}
+
+.inicio-columna {
+    text-align: center;
+    padding: 10px;
+}
+
+.inicio-lista {
+    text-align: left;
+    margin-left: 15%;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.linea-horizontal {
+    border-bottom: 2px solid #000000;
+    /* margin: 20px 0; */
+    width: 100%;
+}
+
+.foto-perfil {
+    width: 354px;       
+    height: 419px;      
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* --- RESPONSIVE (Móviles) --- */
+@media (max-width: 768px) {
+    .inicio {
+        /* Cambiamos a 1 sola columna */
+        grid-template-columns: 1fr;
+        /* Aumentamos el espacio entre el texto y la foto */
+        gap: 40px;
+        margin-top: 10%;
+        /* Importante: reseteamos el line-height para que el texto no se monte si hace salto de línea */
+        line-height: normal; 
+    }
+
+    /* Ocultamos la línea vertical divisoria porque ya no sirve en vertical */
+    .inicio::after {
+        display: none;
+    }
+
+    /* Centramos la lista de opciones */
+    .inicio-lista {
+        margin-left: 0;
+        text-align: center; /* Opcional: cámbialo a left si prefieres que las flechas se alineen a la izq */
+        margin-top: 20px;
+    }
+
+    /* Ajustamos el tamaño de la foto para que no sea gigante en el cel */
+    .foto-perfil {
+        width: 280px; /* Un tamaño más manejable para móvil */
+        margin: 0 auto; /* Centrar la imagen */
+        display: block;
+    }
+
+    /* Opcional: Si quieres que la foto aparezca PRIMERO en el celular */
+    /* Descomenta las siguientes 3 líneas: */
+    /* .inicio-columna:last-child {
+        order: -1;
+    } */
+}

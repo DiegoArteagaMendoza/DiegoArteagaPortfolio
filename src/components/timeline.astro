@@ -1,0 +1,58 @@
+---
+
+// Importación de estilos
+import '../styles/timeline.css';
+
+import { Image } from 'astro:assets';
+import Copelect from '../assets/copelec.jpeg';
+import Senegocia from '../assets/senegocia.jpeg';
+---
+
+<section class="timeline-section">
+
+    <h4>Mi Recorrido Profesional</h4>
+
+    <div class="timeline-flex">
+        
+        <div class="timeline-node">
+            <div class="marker">1</div>
+            <div class="info">
+                Ingeniero Civil Informático Universidad del Bío-Bío<br>2021-2025
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="marker">2</div>
+            <div class="info">
+                Prácticas profesionales en empresas reales
+                <div class="logos">
+                    <Image src={ Copelect } alt="Copelect" />
+                    <Image src={ Senegocia } alt="Senegocia" />
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="marker">3</div>
+            <div class="info">
+                Participación en Jornada Chilena de Computación<br>2025
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="marker">4</div>
+            <div class="info">
+                Estudiante de Magíster en Ciencias de la Computación<br>
+                Universidad del Bío-Bío 2025 - 2026
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="marker">5</div>
+            <div class="info">
+                Desarrollador Web Independiente - Freelancer<br>2026
+            </div>
+        </div>
+
+    </div>
+</section>

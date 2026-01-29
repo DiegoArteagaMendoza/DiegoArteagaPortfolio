@@ -1,0 +1,26 @@
+---
+import '../styles/inicio.css';
+import { Image } from 'astro:assets';
+import fotoPortada from '../assets/foto-portada.jpeg';
+---
+
+<section>
+    <div class="inicio">
+        <div class="inicio-columna">
+            <h3 class="text-xl mb-10">DIEGO ARTEGA MENDOZA</h3>
+            <h2 class="text-xl font-black mb-10">DESARROLLADOR BACKEND</h2>
+            
+            <div class="linea-horizontal"></div>
+            
+            <div class="inicio-lista">
+                <h4>🡲 ¿Quien Soy?</h4>
+                <h4>🡲 Mis Proyectos</h4>
+                <h4>🡲 Contacto y Redes Sociales</h4>
+            </div>
+        </div>
+
+        <div class="inicio-columna">
+            <Image src={fotoPortada} alt="Diego Arteaga Mendoza" class="foto-perfil" />
+        </div>
+    </div>
+</section>

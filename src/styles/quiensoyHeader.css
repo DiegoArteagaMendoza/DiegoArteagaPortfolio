@@ -1,0 +1,59 @@
+/* --- ESTILOS DE ESCRITORIO (Tu código original) --- */
+.seccion {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 5%;
+    margin-left: 15%;
+    margin-right: 18%;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1;
+    align-items: center;
+}
+
+.columna-uno {
+    text-align: left;
+    font-size: x-large;
+}
+
+.columna-dos {
+    text-align: right;
+}
+
+.asuka {
+    width: 100px;
+    height: 150px;
+    /* Aseguramos que se muestre en escritorio por si acaso */
+    /* display: block;  */
+}
+
+/* --- RESPONSIVE (Móviles y Tablets verticales) --- */
+@media (max-width: 768px) {
+    .seccion {
+        /* 1. Cambiamos a una sola columna vertical */
+        grid-template-columns: 1fr;
+        
+        /* 2. Reducimos los márgenes para aprovechar la pantalla del cel */
+        margin: 10% 20px; 
+        
+        /* Opcional: Centrar todo en móvil suele verse mejor */
+        /* text-align: center; */
+    }
+
+    .columna-uno {
+        /* Ajustamos el texto si es necesario */
+        text-align: center; 
+        margin-bottom: 20px;
+    }
+
+    .columna-dos {
+        /* Reseteamos la alineación derecha para que quede centrado o a la izq */
+        text-align: center; 
+    }
+
+    /* 3. OCULTAR .asuka */
+    .asuka {
+        display: none;
+    }
+}

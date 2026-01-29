@@ -1,0 +1,76 @@
+/* Título */
+h4 {
+  margin: 50px 0; /* Margen arriba y abajo */
+  font-size: x-large;
+  text-align: center; /* Centramos el título */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- Contenedor Principal (Grid) --- */
+/* Unificamos linea1 y linea2 en una sola clase */
+.grid-tecnologias {
+  display: grid;
+  /* Por defecto (PC): 4 columnas iguales */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 30px; /* Espacio entre items */
+  margin: 5%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large; /* Ajusté un poco el tamaño, xx-large puede ser mucho */
+}
+
+/* --- Tarjeta Individual --- */
+.tecnologia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column; /* IMPORTANTE: Esto pone uno encima del otro */
+  align-items: center;    /* Centra horizontalmente imagen y texto */
+  text-align: center;
+  gap: 15px;              /* Espacio entre la imagen y el texto */
+  width: 100%;
+}
+
+/* --- Imágenes --- */
+.img {
+  width: 80px;  /* Ancho fijo para uniformidad */
+  height: 80px; /* Alto fijo */
+  object-fit: contain; /* Asegura que la imagen no se estire ni deforme */
+  
+  /* Opcional: si quieres que la imagen esté arriba visualmente pero 
+     en el HTML esté abajo, usamos order. Pero mejor cambiamos el HTML. */
+}
+
+/* --- RESPONSIVE --- */
+
+/* Tablets (menos de 1024px) -> 3 columnas */
+@media (max-width: 1024px) {
+  .grid-tecnologias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Móviles grandes (menos de 768px) -> 2 columnas */
+@media (max-width: 768px) {
+  .grid-tecnologias {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    font-size: large;
+  }
+  
+  .img {
+    width: 60px; /* Iconos más pequeños en móvil */
+    height: 60px;
+  }
+}
+
+/* Móviles muy pequeños (menos de 480px) -> 1 columna (Opcional) */
+/* Si prefieres que sigan siendo 2, puedes borrar este bloque */
+@media (max-width: 480px) {
+  .grid-tecnologias {
+    grid-template-columns: repeat(2, 1fr); /* Mantenemos 2 para ver iconos juntos */
+  }
+}
