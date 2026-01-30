@@ -1,0 +1,49 @@
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem; /* Ajustado para que sea legible */
+}
+
+.formulario-contacto label {
+    font-weight: bold;
+    margin-bottom: -10px; /* Para acercar el label al input */
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 10px;
+    border: 2px solid #000; /* Borde negro sólido estilo 'brutalismo' */
+    background-color: #f9f9f9;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    background-color: #e0e0e0;
+}
+
+.formulario-contacto button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.formulario-contacto button:hover {
+    background-color: #333;
+}
+
+.formulario-contacto button:active {
+    transform: scale(0.98);
+}
