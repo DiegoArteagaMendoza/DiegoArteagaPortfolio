@@ -1,5 +1,8 @@
 ---
 import '../styles/contactoform.css'
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORM_ACCESS_KEY;
+console.log("Mi clave es:", accessKey);
 ---
 
 <div class="contact-wrapper">
@@ -8,9 +11,17 @@ import '../styles/contactoform.css'
       <h2 class="contact-title">Contáctame</h2>
     </div>
 
-    <form action="https://api.web3forms.com/submit" method="POST" class="form-group-container">
-      <input type="hidden" name="access_key" value="16a84534-d68d-47fe-94d9-f9002e5561a3">
+    <form 
+      action="https://api.web3forms.com/submit" 
+      method="POST" 
+      class="form-group-container"
+      id="contact-form"
+    >
       
+      <input type="hidden" name="access_key" value={accessKey}>
+      
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
       <div class="form-group">
         <label for="name" class="form-label">Nombre</label>
         <input type="text" name="name" id="name" class="form-input" placeholder="Tu nombre" required>
@@ -27,6 +38,59 @@ import '../styles/contactoform.css'
       </div>
 
       <button type="submit" class="form-submit">Enviar</button>
+
+      <div id="result" class="mt-3 text-center"></div>
+
     </form>
   </section>
 </div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const result = document.getElementById('result') as HTMLDivElement;
+
+  if (form && result) {
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        result.style.display = "block";
+        result.innerHTML = "Enviando...";
+        
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = "¡Mensaje enviado con éxito!";
+                result.style.color = "green";
+                form.reset();
+            } else {
+                console.log(response);
+                result.innerHTML = json.message || "Error al enviar";
+                result.style.color = "red";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Algo salió mal. Intenta de nuevo.";
+            result.style.color = "red";
+        })
+        .then(function() {
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 5000);
+        });
+      });
+  }
+</script>
