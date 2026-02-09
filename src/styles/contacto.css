@@ -1,7 +1,7 @@
 .contacto {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columnas en PC */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0px;
     margin: 5%;
     margin-top: 5%;

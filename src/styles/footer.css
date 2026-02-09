@@ -5,15 +5,12 @@
     margin-left: 15%;
     margin-right: 15%;
     font-family: 'Courier New', Courier, monospace;
-    /* ESTO ALINEA LAS COLUMNAS ENTRE SÍ VERTICALMENTE */
     align-items: center; 
 }
 
 .footer-column {
-    /* ESTO HABILITA QUE JUSTIFY Y ALIGN FUNCIONEN DENTRO DE LA COLUMNA */
     display: flex;
-    flex-direction: column; /* Para que los h3 queden uno debajo del otro */
-    
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;

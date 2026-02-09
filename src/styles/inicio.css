@@ -1,7 +1,7 @@
 .inicio {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columnas en PC */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0px;
     margin: 5%;
     margin-top: 5%;
@@ -51,40 +51,28 @@
     border-radius: 20px;
 }
 
-/* --- RESPONSIVE (Móviles) --- */
 @media (max-width: 768px) {
     .inicio {
-        /* Cambiamos a 1 sola columna */
         grid-template-columns: 1fr;
-        /* Aumentamos el espacio entre el texto y la foto */
         gap: 40px;
         margin-top: 10%;
-        /* Importante: reseteamos el line-height para que el texto no se monte si hace salto de línea */
         line-height: normal; 
     }
 
-    /* Ocultamos la línea vertical divisoria porque ya no sirve en vertical */
     .inicio::after {
         display: none;
     }
 
-    /* Centramos la lista de opciones */
     .inicio-lista {
         margin-left: 0;
-        text-align: center; /* Opcional: cámbialo a left si prefieres que las flechas se alineen a la izq */
+        text-align: center;
         margin-top: 20px;
     }
 
-    /* Ajustamos el tamaño de la foto para que no sea gigante en el cel */
     .foto-perfil {
-        width: 280px; /* Un tamaño más manejable para móvil */
-        margin: 0 auto; /* Centrar la imagen */
+        width: 280px;
+        margin: 0 auto;
         display: block;
     }
 
-    /* Opcional: Si quieres que la foto aparezca PRIMERO en el celular */
-    /* Descomenta las siguientes 3 líneas: */
-    /* .inicio-columna:last-child {
-        order: -1;
-    } */
 }

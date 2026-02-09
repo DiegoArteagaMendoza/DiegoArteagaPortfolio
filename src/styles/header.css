@@ -1,47 +1,3 @@
-/* .daam-container {
-    position: relative;
-    width: 189px; 
-    height: 115px;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    margin: 25px;
-}
-
-.daam-circle {
-    position: absolute;
-    width: 144px;
-    height: 115px;
-    background-color: #FF7070;
-    opacity: 0.6;
-    border-radius: 50%;
-    top: 0;
-}
-
-.c1 { left: 0px;  z-index: 1; }
-.c2 { left: 15px; z-index: 2; }
-.c3 { left: 30px; z-index: 3; }
-.c4 { left: 45px; z-index: 4; }
-
-.daam-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    color: black;
-    font-family: 'Courier New', Courier, monospace; 
-    font-size: 3rem; 
-    line-height: 0.8;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-} */
-
-/* --- Estilos Base (Tu código original) --- */
 .daam-container {
     position: relative;
     width: 189px; 
@@ -51,9 +7,8 @@
     user-select: none;
     margin: 25px;
     
-    /* Aseguramos que al escalar, el punto de origen sea el centro o la izquierda */
     transform-origin: center center;
-    transition: transform 0.3s ease; /* Suaviza el cambio de tamaño */
+    transition: transform 0.3s ease;
 }
 
 .daam-circle {
@@ -89,23 +44,16 @@
     letter-spacing: -0.02em;
 }
 
-/* --- RESPONSIVE: Ajustes para Móviles --- */
-
-/* Breakpoint para tablets y móviles grandes (aprox. < 768px) */
 @media (max-width: 768px) {
     .daam-container {
-        transform: scale(0.8); /* Reduce al 80% del tamaño original */
-        margin: 15px; /* Reducimos el margen externo */
+        transform: scale(0.8);
+        margin: 15px;
     }
 }
 
-/* Breakpoint para móviles pequeños (aprox. < 480px) */
 @media (max-width: 480px) {
     .daam-container {
-        transform: scale(0.65); /* Reduce al 65% del tamaño original */
-        margin: 5px; /* Márgenes mínimos */
-        
-        /* Opcional: Si necesitas que se alinee a la izquierda en móvil en vez de centrado */
-        /* transform-origin: left center; */ 
+        transform: scale(0.65);
+        margin: 5px;
     }
 }

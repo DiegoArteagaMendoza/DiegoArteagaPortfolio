@@ -1,8 +1,7 @@
-/* src/styles/timeline.css */
 
 :root {
-  --marker-color: #fda4a4; /* Rosa */
-  --line-color: #666;      /* Gris oscuro líneas */
+  --marker-color: #fda4a4; 
+  --line-color: #666;      
   --text-color: #444;
   --marker-size: 50px;
 }
@@ -12,27 +11,24 @@ h4 {
   font-size: x-large;
 }
 
-/* --- Contenedor Principal --- */
 .timeline-section {
   max-width: 1200px;
   margin: 4rem auto;
   padding: 0 20px;
 }
 
-/* Contenedor flexible de los nodos */
 .timeline-flex {
   display: flex;
-  justify-content: space-between; /* Distribuye equitativamente */
-  align-items: flex-start;        /* Alinear al tope */
+  justify-content: space-between; 
+  align-items: flex-start;        
   position: relative;
   padding-top: 20px;
 }
 
-/* --- La Línea Horizontal (Eje Central) --- */
 .timeline-flex::before {
   content: '';
   position: absolute;
-  top: 45px; /* Mitad del marker (25px) + padding-top (20px) */
+  top: 45px;
   left: 0;
   right: 0;
   height: 2px;
@@ -40,20 +36,18 @@ h4 {
   z-index: 0; 
 }
 
-/* --- Nodo Individual --- */
 .timeline-node {
   position: relative;
-  z-index: 1; /* Para estar sobre la línea gris */
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  flex: 1;    /* Todos los nodos ocupan el mismo ancho */
+  flex: 1;   
   padding: 0 10px;
-  transition: 0.5s; /* Transición suave para cuando vuelva del hover */
+  transition: 0.5s;
 }
 
-/* El círculo rosa */
 .marker {
   width: var(--marker-size);
   height: var(--marker-size);
@@ -64,7 +58,6 @@ h4 {
   flex-shrink: 0;
   font-family: 'Courier New', Courier, monospace;
 
-  /* Centrado del número */
   display: flex;
   justify-content: center; 
   align-items: center;     
@@ -74,14 +67,12 @@ h4 {
   color: #fff;            
 }
 
-/* --- Texto e Información --- */
 .info {
   font-size: large;
-  /* color: var(--text-color); */
   color: #000;
   line-height: 1.4;
   font-family: 'Courier New', Courier, monospace;
-  transition: 0.3s; /* Suavizar cambio de color de texto */
+  transition: 0.3s; 
 }
 
 .info strong {
@@ -92,7 +83,6 @@ h4 {
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* --- Logos --- */
 .logos {
   display: flex;
   justify-content: center;
@@ -107,37 +97,16 @@ h4 {
   object-fit: contain;
   border-radius: 4px;
 }
-
-/* ================================================================
-   EFECTOS HOVER (SOLO ESCRITORIO)
-   Aquí está el truco: Encerramos esto en min-width: 769px.
-   Así, estos estilos NO EXISTEN para el celular.
-   ================================================================ 
-*/
-/* @media (min-width: 769px) {
-  .timeline-node:hover {
-    transform: scale(1.5);
-    background-color: rgba(255, 87, 87, 0.3);
-    z-index: 10;
-  }
-
-  .timeline-node .info:hover {
-    color: #000;
-  }
-} */
-
-/* --- Responsive: Diseño Vertical para Móviles --- */
 @media (max-width: 768px) {
   .timeline-flex {
     flex-direction: column;
     padding-left: 0;
   }
 
-  /* La línea cambia de horizontal a vertical */
   .timeline-flex::before {
     top: 0;
     bottom: 0;
-    left: 25px; /* Centrada con el marcador */
+    left: 25px; 
     width: 2px;
     height: 100%;
     right: auto;
