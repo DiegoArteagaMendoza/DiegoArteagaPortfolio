@@ -1,22 +1,22 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Inicio from '../components/inicio.astro';
-import Quiensoy from '../components/quiensoy.astro';
 import Layout from '../layouts/Layout.astro';
-import Proyectos from '../components/proyectos.astro';
-import CoominSoon from '../components/comingsoon.astro';
-import Footer from '../components/footer.astro';
-import Contacto from '../components/contacto.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
+import Trayectoria from '../components/Trayectoria.astro';
+import Tecnologias from '../components/Tecnologias.astro';
+import Contacto from '../components/Contacto.astro';
 ---
 
 <Layout>
-	<!-- <Welcome /> -->
-	<Inicio />
-	<Quiensoy />
-	<CoominSoon />
-	<Contacto />
-	<Footer />
+  <Hero />
+  <Trayectoria />
+  <Tecnologias />
+  <Contacto />
+  
+  <footer class="minimal-footer">
+    <p>&copy; 2026 Diego Arteaga Mendoza - Desarrollador Backend </p>
+  </footer>
 </Layout>
+
+<style>
+  .minimal-footer { text-align: center; padding: 4rem 0; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+</style>

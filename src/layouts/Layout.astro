@@ -1,24 +1,44 @@
 ---
-import Header from "../components/header.astro"
+import '../styles/variables.css';
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<!-- <meta name="generator" content={Astro.generator} /> -->
-		<title>Diego Arteaga Mendoza | Desarrollador Backend</title>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<slot />
-		</main>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="icon" href="/logoweb.ico" sizes="any" />
+        
+        <title>Diego Arteaga Mendoza | Desarrollador Backend</title>
+    </head>
+    <body>
+        <div class="page-container">
+            <main>
+                <slot />
+            </main>
+        </div>
+    </body>
 </html>
 
 <style is:global>
+  /* Aseguramos que el fondo ocupe todo el ancho */
+  body {
+    background-color: var(--bg-black);
+    margin: 0;
+  }
+
+  /* Este contenedor crea los márgenes laterales */
+  .page-container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto;    /* Centra el contenido */
+    padding: 0 1.5rem; /* Margen de seguridad en móviles */
+  }
+
+  /* Responsive: márgenes más amplios en pantallas grandes */
+  @media (min-width: 1024px) {
+    .page-container {
+      padding: 0 4rem;
+    }
+  }
 </style>

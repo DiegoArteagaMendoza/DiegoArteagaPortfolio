@@ -1,15 +1,68 @@
 ---
-import '../styles/header.css'; 
+/* src/components/logo.astro */
 ---
 
 <div class="daam-container">
-    <div class="daam-circle c1"></div>
-    <div class="daam-circle c2"></div>
-    <div class="daam-circle c3"></div>
-    <div class="daam-circle c4"></div>
+    <div class="daam-circles">
+        <div class="daam-circle c1"></div>
+        <div class="daam-circle c2"></div>
+        <div class="daam-circle c3"></div>
+        <div class="daam-circle c4"></div>
+    </div>
 
     <div class="daam-text">
         <span>DA</span>
         <span>AM</span>
     </div>
 </div>
+
+<style>
+    .daam-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Aumentado de 60px a 80px */
+        width: 80px;
+        height: 80px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .daam-circles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .daam-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid var(--primary-purple);
+        opacity: 0.6;
+    }
+
+    /* Efecto de capas/anillos */
+    .c1 { transform: scale(1); border-color: var(--primary-purple); }
+    .c2 { transform: scale(0.85); border-color: #fff; opacity: 0.3; }
+    .c3 { transform: scale(0.7); border-color: var(--secondary-purple); }
+    .c4 { transform: scale(0.55); border-color: var(--primary-purple); opacity: 0.8; }
+
+    .daam-text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        font-weight: 900;
+        /* Aumentado de 0.8rem a 1rem para proporcionalidad */
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    .daam-text span {
+        display: block;
+    }
+</style>

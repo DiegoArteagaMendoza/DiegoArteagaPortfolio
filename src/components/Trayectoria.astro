@@ -1,0 +1,39 @@
+<section id="trayectoria">
+  <h3>Trayectoria Académica y Profesional</h3>
+  
+  <div class="grid-layout">
+    <div class="timeline">
+      <div class="card">
+        <span class="tag">2025 - 2026</span>
+        <h4>Magíster en Ciencias de la Computación</h4>
+        <p>Universidad del Bío-Bío </p>
+      </div>
+      <div class="card">
+        <span class="tag">2021 - 2025</span>
+        <h4>Ingeniería Civil en Informática</h4>
+        <p>Universidad del Bío-Bío </p>
+      </div>
+      <div class="card">
+        <span class="tag">Prácticas</span>
+        <h4>Experiencia Profesional</h4>
+        <p>Copelec & Senegocia </p>
+      </div>
+    </div>
+
+    <div class="soft-skills">
+      <div class="skill-item"><span>💬</span> Comunicación Proactiva </div>
+      <div class="skill-item"><span>🤝</span> Trabajo en Equipo </div>
+      <div class="skill-item"><span>🚀</span> Evolución Diaria </div>
+      <div class="skill-item"><span>💎</span> Código Limpio </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid-layout { display: grid; grid-template-columns: 1fr 0.5fr; gap: 2rem; margin-top: 2rem; }
+  .card { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 1rem; }
+  .tag { color: var(--primary-purple); font-size: 0.8rem; font-weight: bold; }
+  .soft-skills { display: flex; flex-direction: column; gap: 1rem; }
+  .skill-item { background: #000; border: 1px solid var(--primary-purple); padding: 1rem; border-radius: 8px; text-align: center; }
+  @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
+</style>

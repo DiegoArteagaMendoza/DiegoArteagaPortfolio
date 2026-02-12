@@ -1,25 +1,111 @@
 ---
-import '../styles/contacto.css';
-import Form from '../components/contactoform.astro';
+/* src/components/Contacto.astro */
 ---
-
-<section>
-
-    <h4>Contacto y Redes Sociales</h4>
-
-    <div class="contacto">
-        <div class="contacto-columna">
-            <Form />
-        </div>
-        
-        <div class="contacto-columna contacto2">
-            <img src="/iglogo.png" alt="Instagram Logo" class="iglogo">
-            <div class="fila"><a href="https://www.instagram.com/arti_machtbrot/">arti_machtbrot⭷</a></div>
-            <img src="/LinkedIn.png" alt="Linkedin Logo" class="iglogo">
-            <div class="fila"><a href="https://www.linkedin.com/in/diegoartagamendoza/">diegoarteagamendoza⭷</a></div>
-            <img src="/github.png" alt="GitHub Logo" class="iglogo">
-            <div class="fila"><a href="https://github.com/DiegoArteagaMendoza">DiegoArteagaMendoza⭷</a></div>
-        </div>
+<section id="contacto">
+  <h3>Contáctame</h3>
+  <form id="contact-form" class="contact-form">
+    <input type="hidden" name="access_key" value="9e985229-0048-474d-9ff9-abb598ec970c" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <div class="input-group">
+      <input type="text" name="name" placeholder="Tu Nombre" required />
+      <input type="email" name="email" placeholder="Tu Email" required />
     </div>
-
+    <textarea name="message" placeholder="¿En qué puedo ayudarte?" rows="5" required></textarea>
+    
+    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+    
+    <div id="result" class="form-result"></div>
+  </form>
 </section>
+
+<script>
+  // Cambiamos el casting "as HTMLFormElement" por una validación de instancia más segura
+  const form = document.getElementById('contact-form');
+  const result = document.getElementById('result');
+
+  if (form instanceof HTMLFormElement && result instanceof HTMLDivElement) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      result.style.display = "block";
+      result.innerHTML = "Enviando...";
+      result.style.color = "white";
+      
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        const resJson = await response.json();
+        if (response.status === 200) {
+          result.innerHTML = "¡Mensaje enviado con éxito!";
+          result.style.color = "#4ade80";
+          form.reset();
+        } else {
+          result.innerHTML = resJson.message || "Error al enviar";
+          result.style.color = "#f87171";
+        }
+      })
+      .catch(() => {
+        result.innerHTML = "Algo salió mal. Intenta de nuevo.";
+        result.style.color = "#f87171";
+      })
+      .finally(() => {
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 5000);
+      });
+    });
+  }
+</script>
+
+<style>
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  
+  input, textarea { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border-color); 
+    color: white; 
+    padding: 1rem; 
+    border-radius: 8px; 
+    outline: none; 
+    font-family: inherit;
+  }
+  
+  input:focus, textarea:focus { border-color: var(--primary-purple); }
+  
+  .btn-submit { 
+    background: var(--primary-purple); 
+    color: white; 
+    padding: 1rem; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s; 
+  }
+  
+  .btn-submit:hover { 
+    background: var(--secondary-purple); 
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4); 
+  }
+
+  .form-result {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 500;
+    min-height: 1.5rem;
+  }
+
+  @media (max-width: 480px) { .input-group { grid-template-columns: 1fr; } }
+</style>

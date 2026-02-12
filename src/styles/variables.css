@@ -1,0 +1,35 @@
+:root {
+  --bg-black: #0a0a0a;
+  --bg-card: #161616;
+  --primary-purple: #7c3aed;
+  --secondary-purple: #4c1d95;
+  --text-white: #ffffff;
+  --text-gray: #a1a1aa;
+  --accent-white: #f4f4f5;
+  --border-color: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h3, h4, h5 {
+  color: var(--primary-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
