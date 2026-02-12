@@ -18,5 +18,8 @@
       "esbuild",
       "sharp"
     ]
+  },
+  "devDependencies": {
+    "@img/sharp-linux-x64": "^0.34.5"
   }
 }
