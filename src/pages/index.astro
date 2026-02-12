@@ -1,22 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Proyectos from '../components/Proyectos.astro'; // Nueva importación
 import Trayectoria from '../components/Trayectoria.astro';
 import Tecnologias from '../components/Tecnologias.astro';
 import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
   <Hero />
   <Trayectoria />
+  <Proyectos /> 
   <Tecnologias />
   <Contacto />
-  
-  <footer class="minimal-footer">
-    <p>&copy; 2026 Diego Arteaga Mendoza - Desarrollador Backend </p>
-  </footer>
+  <Footer />
+  <!-- <footer class="minimal-footer">
+    <p>&copy; 2026 Diego Arteaga Mendoza - Desarrollador Backend</p>
+  </footer> -->
 </Layout>
-
-<style>
-  .minimal-footer { text-align: center; padding: 4rem 0; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
-</style>

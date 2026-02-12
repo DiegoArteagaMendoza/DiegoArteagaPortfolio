@@ -1,45 +1,28 @@
 ---
 /* src/components/Tecnologias.astro */
+
+// Definimos la lista de tecnologías aquí para facilitar cambios futuros
+const tecnologias = [
+  { nombre: "Python", icon: "/python.png" },
+  { nombre: "Django", icon: "/django.png" },
+  { nombre: "Java", icon: "/java.png" },
+  { nombre: "Springboot", icon: "/springboot.png" },
+  { nombre: "JWT", icon: "/jwt.png" },
+  { nombre: "Astro", icon: "/astro.png" },
+  { nombre: "Git", icon: "/git.png" }
+];
 ---
+
 <section class="tech-section">
   <h3>Tecnologías y Herramientas</h3>
+  
   <div class="tech-container">
-    
-    <div class="tech-badge">
-      <img src="/python.png" alt="Python" class="tech-icon" />
-      <span>Python</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/django.png" alt="Django" class="tech-icon" />
-      <span>Django</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/java.png" alt="Java" class="tech-icon" />
-      <span>Java</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/springboot.png" alt="Springboot" class="tech-icon" />
-      <span>Springboot</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/jwt.png" alt="JWT" class="tech-icon" />
-      <span>JWT</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/astro.png" alt="Astro" class="tech-icon" />
-      <span>Astro</span>
-    </div>
-
-    <div class="tech-badge">
-      <img src="/git.png" alt="Git" class="tech-icon" />
-      <span>Git</span>
-    </div>
-
+    {tecnologias.map((tech) => (
+      <div class="tech-badge">
+        <img src={tech.icon} alt={tech.nombre} class="tech-icon" />
+        <span>{tech.nombre}</span>
+      </div>
+    ))}
   </div>
 </section>
 
@@ -75,14 +58,12 @@
     font-weight: 600; 
     transition: all 0.3s ease;
     color: var(--text-white);
-    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+    white-space: nowrap;
   }
 
   .tech-icon {
-    /* Tamaño fijo del icono */
     width: 20px !important;
     height: 20px !important;
-    /* Evita que la imagen crezca o se encoja */
     flex-shrink: 0;
     object-fit: contain;
     display: block;
@@ -95,7 +76,6 @@
     background: rgba(124, 58, 237, 0.05);
   }
 
-  /* Ajuste para móviles muy pequeños */
   @media (max-width: 480px) {
     .tech-badge {
       padding: 0.4rem 0.8rem;

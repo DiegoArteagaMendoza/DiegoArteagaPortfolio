@@ -1,0 +1,143 @@
+---
+import LogoDaam from './logo.astro';
+---
+
+<footer class="full-width-footer">
+  <div class="footer-inner-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <LogoDaam />
+        <div class="brand-text">
+          <h3 class="footer-name">Diego Arteaga Mendoza</h3>
+          <p class="footer-tagline">Desarrollador Backend</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="link-group">
+          <h4>Navegación</h4>
+          <a href="#trayectoria">Trayectoria</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        
+        <div class="link-group">
+          <h4>Redes</h4>
+          <a href="https://github.com/DiegoArteagaMendoza" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/diegoartagamendoza/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} — Diseñado con Astro y mucho Código Limpio</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .full-width-footer {
+    background-color: #050505;
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem 0;
+    margin-top: 5rem;
+    
+    /* Técnica para ocupar todo el ancho ignorando el margen del padre */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .footer-inner-container {
+    /* Mantiene el contenido alineado con el ancho de tu Layout */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-name {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    text-transform: none;
+  }
+
+  .footer-tagline {
+    color: var(--primary-purple);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .link-group h4 {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .link-group a {
+    display: block;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s ease;
+  }
+
+  .link-group a:hover {
+    color: var(--primary-purple);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer-bottom p {
+    color: #444;
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner-container {
+      padding: 0 4rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-links {
+      gap: 2rem;
+    }
+  }
+</style>
